@@ -1,6 +1,3 @@
-cache:
-- "c:\\project\\dist"
-
 build: off
 
 before_test:
