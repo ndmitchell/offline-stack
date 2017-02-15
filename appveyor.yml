@@ -17,6 +17,9 @@ environment:
     STACK_ROOT: "c:\\sr"
 
 test_script:
+- cabal install
+- cabal clean
+- start http-redirect
 - set http_proxy=localhost:3000
 - set https_proxy=localhost:3000
 - stack init
