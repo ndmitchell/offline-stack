@@ -27,8 +27,8 @@ main = withSocketsDo $ do
 
 app :: Request -> IO Response
 app req = do
-    let want = BS.unpack $ rawPathInfo req `BS.append` rawQueryString req
-    let url = uncurry (++) $ first (++ ":/") $ break ('/' ==) $ tail want
+    let want = tail $ BS.unpack $ rawPathInfo req `BS.append` rawQueryString req
+    let url = uncurry (++) $ first (++ ":/") $ break ('/' ==) want
     let file = "mirror" </> replace "?" "_" (replace "/" "_" want)
     createDirectoryIfMissing True "mirror"
 
