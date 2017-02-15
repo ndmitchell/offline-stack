@@ -14,6 +14,11 @@ environment:
     STACK_ROOT: "c:\\sr"
 
 test_script:
+- curl -ostack.zip -L --insecure https://raw.githubusercontent.com/fpco/stackage-content/master/stack/stack-setup-2.yaml
+- sed "s/https\:\//http\:\/\/localhost\:3000\/https/g" stack-setup-2.yaml > setup.yaml
+- mkdir %STACK_ROOT%
+- copy config.yaml %STACK_ROOT%\config.yaml
+
 - cabal update
 - cabal install -j1 --ghc-options=-j
 - copy dist\build\http-redirect\http-redirect.exe http-redirect.exe
@@ -21,9 +26,6 @@ test_script:
 - set http_proxy=localhost:3000
 - set https_proxy=localhost:3000
 
-- mkdir %STACK_ROOT%
-- copy config.yaml %STACK_ROOT%\config.yaml
-
 - stack init
-- stack setup > nul
+- stack setup --setup-info-yaml setup.yaml
 - stack build
