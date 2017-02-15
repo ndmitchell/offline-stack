@@ -15,7 +15,7 @@ environment:
 
 test_script:
 - cabal update
-- cabal install
+- cabal install -j1 --ghc-options=-j
 - copy dist\build\http-redirect\http-redirect.exe http-redirect.exe
 - ps: Start-Process http-redirect.exe
 - set http_proxy=localhost:3000
