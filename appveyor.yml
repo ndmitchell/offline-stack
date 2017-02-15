@@ -29,3 +29,4 @@ test_script:
 - stack init
 - stack setup --setup-info-yaml setup.yaml > nul
 - stack build
+- dir /b mirror
