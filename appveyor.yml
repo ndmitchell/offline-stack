@@ -19,8 +19,8 @@ environment:
 test_script:
 - cabal update
 - cabal install
-- cabal clean
-- ps: Start-Process http-redirect
+- copy dist\build\http-redirect\http-redirect.exe http-redirect.exe
+- ps: Start-Process http-redirect.exe
 - set http_proxy=localhost:3000
 - set https_proxy=localhost:3000
 - stack init
