@@ -17,6 +17,7 @@ environment:
     STACK_ROOT: "c:\\sr"
 
 test_script:
+- cabal update
 - cabal install
 - cabal clean
 - start http-redirect
