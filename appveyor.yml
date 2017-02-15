@@ -14,7 +14,7 @@ environment:
     STACK_ROOT: "c:\\sr"
 
 test_script:
-- curl -L --insecure https://raw.githubusercontent.com/fpco/stackage-content/master/stack/stack-setup-2.yaml
+- curl -ostack-setup-2.yaml -L --insecure https://raw.githubusercontent.com/fpco/stackage-content/master/stack/stack-setup-2.yaml
 - sed "s/https\:\//http\:\/\/localhost\:3000\/https/g" stack-setup-2.yaml > setup.yaml
 - mkdir %STACK_ROOT%
 - copy config.yaml %STACK_ROOT%\config.yaml
