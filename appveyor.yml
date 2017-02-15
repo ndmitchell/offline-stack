@@ -27,5 +27,5 @@ test_script:
 - set https_proxy=localhost:3000
 
 - stack init
-- stack setup --setup-info-yaml setup.yaml
+- stack setup --setup-info-yaml setup.yaml > nul
 - stack build
