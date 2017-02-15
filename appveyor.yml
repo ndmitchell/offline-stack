@@ -23,6 +23,10 @@ test_script:
 - ps: Start-Process http-redirect.exe
 - set http_proxy=localhost:3000
 - set https_proxy=localhost:3000
+
+- mkdir %STACK_ROOT%
+- copy config.yaml %STACK_ROOT%\config.yaml
+
 - stack init
 - stack setup > nul
 - stack build
