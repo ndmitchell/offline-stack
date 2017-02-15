@@ -20,7 +20,7 @@ test_script:
 - cabal update
 - cabal install
 - cabal clean
-- Start-Process -NoNewWindow http-redirect
+- start /b http-redirect
 - set http_proxy=localhost:3000
 - set https_proxy=localhost:3000
 - stack init
