@@ -1,6 +1,6 @@
 cabal-version:      >= 1.18
 build-type:         Simple
-name:               offline-stack
+name:               http-redirect
 version:            0
 
 executable http-redirect
