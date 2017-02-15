@@ -1,0 +1,4 @@
+urls:
+  latest-snapshot: http://localhost:3000/https/www.stackage.org/download/snapshots.json
+  lts-build-plans: http://localhost:3000/https/raw.githubusercontent.com/fpco/lts-haskell/master/
+  nightly-build-plans: http://localhost:3000/https/raw.githubusercontent.com/fpco/stackage-nightly/master/
