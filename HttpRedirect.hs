@@ -27,8 +27,9 @@ main = withSocketsDo $ do
 
 app :: Request -> IO Response
 app req = do
-    let url = uncurry (++) $ first (++ ":/") $ break ('/' ==) $ tail $ BS.unpack $ rawPathInfo req
-    let file = "mirror" </> replace "/" "_" (BS.unpack (rawPathInfo req))
+    let want = BS.unpack $ rawPathInfo req `BS.append` rawQueryString req
+    let url = uncurry (++) $ first (++ ":/") $ break ('/' ==) $ tail want
+    let file = "mirror" </> replace "?" "_" (replace "/" "_" want)
     createDirectoryIfMissing True "mirror"
 
     -- download the file
