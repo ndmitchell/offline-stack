@@ -9,3 +9,8 @@ It comprises of the following steps:
 * Build and execute a Haskell binary which can serve up any files from the internet and mirror them.
 * Set `http_proxy` and `https_proxy` to invalid values, so any attempt by Stack to access the internet directly fails.
 * Set all the appropriate Stack settings to hit the Haskell binary.
+
+This code demonstrates the steps required, but does not address two crucial issues:
+
+* It doesn't say how to get the files in the first place.
+* It provides a mechanism to serve the files up, but it may not be the most appropriate mechanism - often using an existing Apache/IIS server to serve the files will be easier, and provide additional features.
