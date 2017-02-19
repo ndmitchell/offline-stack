@@ -30,7 +30,9 @@ test_script:
 
 # Install using Stack
 - stack init
-- echo setup-info: setup.yaml >> stack.yaml
+- echo adding to stack.yaml
+- echo setup-info\: setup.yaml >> stack.yaml
+- echo added to stack.yaml
 - type stack.yaml
 - stack setup > nul
 - stack build
