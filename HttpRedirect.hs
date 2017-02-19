@@ -9,6 +9,7 @@ import Data.Tuple.Extra
 import System.FilePath
 import System.Directory
 import qualified Data.ByteString.Char8 as BS
+import Control.Monad.Extra
 import Control.Monad.IO.Class
 
 import qualified Network.HTTP.Conduit as C
@@ -33,12 +34,13 @@ app req = do
     createDirectoryIfMissing True "mirror"
 
     -- download the file
-    manager <- C.newManager $ C.mkManagerSettings (TLSSettingsSimple True False False) Nothing
-    request <- C.parseUrlThrow url
-    runResourceT $ do
-        response <- C.http request manager
-        C.responseBody response C.$$+- sinkFile file
-        liftIO $ print $ C.responseStatus response
+    unlessM (doesFileExist file) $ do
+        manager <- C.newManager $ C.mkManagerSettings (TLSSettingsSimple True False False) Nothing
+        request <- C.parseUrlThrow url
+        runResourceT $ do
+            response <- C.http request manager
+            C.responseBody response C.$$+- sinkFile file
+            liftIO $ print $ C.responseStatus response
 
     -- pass it onwards
     return $ responseFile status200 [] file Nothing
