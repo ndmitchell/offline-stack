@@ -29,11 +29,7 @@ test_script:
 - set https_proxy=localhost:3000
 
 # Install using Stack
-- stack init
-- echo adding to stack.yaml
-- echo setup-info\: setup.yaml >> stack.yaml
-- echo added to stack.yaml
-- type stack.yaml
+# - stack init
 - stack setup > nul
 - stack build
 - dir /b mirror
