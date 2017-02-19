@@ -30,6 +30,8 @@ test_script:
 
 # Install using Stack
 - stack init
-- stack setup --setup-info-yaml setup.yaml > nul
+- echo setup-info: setup.yaml >> stack.yaml
+- type stack.yaml
+- stack setup > nul
 - stack build
 - dir /b mirror
