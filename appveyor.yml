@@ -1,7 +1,7 @@
 build: off
 
 before_test:
-- choco install -y ghc --version 8.2.1
+- choco install -y ghc
 - refreshenv
 - ghc --version
 - cabal --version
