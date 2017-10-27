@@ -3,6 +3,7 @@ build: off
 before_test:
 - choco install -y ghc --version 8.2.1
 - refreshenv
+- ghc --version
 - cabal --version
 - curl -ostack.zip -L --insecure http://www.stackage.org/stack/windows-x86_64
 - 7z x stack.zip stack.exe
