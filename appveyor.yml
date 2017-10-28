@@ -5,7 +5,7 @@ before_test:
 - refreshenv
 - ghc --version
 - cabal --version
-- curl -ostack.zip -L --insecure http://www.stackage.org/stack/windows-x86_64
+- curl -ostack.zip -L --insecure https://github.com/ndmitchell/offline-stack/releases/download/1.6rc1/stack-1.6-rc1.zip # http://www.stackage.org/stack/windows-x86_64
 - 7z x stack.zip stack.exe
 - stack --version
 
